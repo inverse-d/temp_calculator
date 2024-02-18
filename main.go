@@ -27,13 +27,19 @@ func main() {
 	case "f":
 		fmt.Println("Type in the temperature in Celsius: ")
 		var temp_c int
-		fmt.Scan(&temp_c)
+		_, err := fmt.Scan(&temp_c)
+		if err != nil {
+			log.Fatal(err)
+		}
 		temp_f := fahrenheit(temp_c)
 		fmt.Println("Temperature in Fahrenheit: ", temp_f)
 	case "c":
 		fmt.Println("Type in the temperature in Fahrenheit: ")
 		var temp_f int
-		fmt.Scan(&temp_f)
+		_, err := fmt.Scan(&temp_f)
+		if err != nil {
+			log.Fatal(err)
+		}
 		temp_c := celsius(temp_f)
 		fmt.Println("Temperatur in Celsius: ", temp_c)
 	default:
